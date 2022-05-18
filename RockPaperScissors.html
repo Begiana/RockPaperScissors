@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+<script>
+
+    alert ("Lets play Rock Paper Scissors with the computer!")
+    
+   
+   //tyxaia epilogh ypologisth  gia thn thesh tou pinaka choice
+    function computerSelection(){
+       const choice=["rock","paper","scissors"];
+       let ComputerChoice=Math.round(Math.random()*2);
+       return choice[ComputerChoice];
+   }   //epistrefei thesh pinaka 
+
+   //eisagwgh epiloghs apo ton xrhsth
+   function playerSelection(){
+    let x=prompt("Please make your choice ")
+        return x.toLowerCase(); //epistrefei string me mh kefalaious xarakthres
+   }
+   
+   //let computerPlay=computerSelection();  //vazw se mia metavliti thn epilogh tou ypologisth 
+   //let playerPlay=playerSelection();              //kai thn epilogh tou xrhsth
+   
+   function playRound(playerPlay=playerSelection() , computerPlay=computerSelection()) {
+    
+       switch(playerPlay){
+        case "rock":
+            {if (computerPlay == 'scissors' ) // 
+                console.log("You Win! Rock Beats Scissors");
+            else if (computerPlay == 'paper') //
+                console.log("You Lose! Paper Beats Rock");
+            else console.log("Its a tie!");
+            break;}
+        case "paper":
+            {if (computerPlay == 'scissors') // 
+                console.log("You Lose! Scissors Beats Paper");
+            else if (computerPlay == 'rock') // 
+                console.log("You win! Paper Beats Rock");
+                else console.log("Its a tie!");
+            break;}    
+        case "scissors":
+            {if (computerPlay == 'rock') //
+                console.log("You Lose! Rock beats Scissors ");
+            else if (computerPlay == 'paper') //
+                console.log("You win! Scissors Beats Paper");
+            else console.log("Its a tie!");
+            break;}  
+             }
+     }
+
+     console.log(playRound());
+   
+</script>
+    
+</body>
+</html>

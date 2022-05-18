@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+      
+    alert ("Lets play Rock Paper Scissors with the computer!")
+    
+    const choice=["rock","paper","scissors"];
+    
+    //tyxaia epilogh ypologisth  gia thn thesh tou pinaka choice
+     function computerSelection(){
+      
+        let ComputerChoice=Math.round(Math.random()*2);
+        return choice[ComputerChoice];
+    }   //epistrefei thesh pinaka 
+ 
+ //eisagwgh epiloghs apo ton xrhsth
+    function playerSelection(){
+       
+     let x=prompt("Computer played ! Its your turn to play .Type your choice ");
+     
+         while(x.toLowerCase()!==choice[0] && x.toLowerCase()!==choice[1] && x.toLowerCase()!==choice[2]) //elegxos eggyrothtas gia th swsth epilogh
+         {
+            x=prompt("Please type better : 'Paper' 'Scissors' or 'Rock");
+         }
+        
+         return x.toLowerCase(); //epistrefei string me mh kefalaious xarakthres
+    }
+    
+    function playRound(playerPlay=playerSelection() , computerPlay=computerSelection()) {   //synarthsh gia ena gyro tou paixnidiou
+        let playerCounter=0;
+        let computerCounter=0;
+        switch(playerPlay){                    
+         case "rock":
+             {if (computerPlay == 'scissors' )
+                 {
+                 console.log("You Win! Rock Beats Scissors");
+                 playerCounter++;
+                 }
+             else if (computerPlay == 'paper')
+                 {
+                 console.log("You Lose! Paper Beats Rock");
+                 computerCounter++;
+                 }
+             else console.log("Its a tie!");
+             break;
+             }
+         case "paper":
+             {if (computerPlay == 'scissors') 
+                {
+                 console.log("You Lose! Scissors Beats Paper");
+                 computerCounter++;
+                }
+             else if (computerPlay == 'rock')  
+                {
+                 console.log("You win! Paper Beats Rock");
+                 playerCounter++;
+                }
+                 else console.log("Its a tie!");
+             break;}    
+         case "scissors":
+             {if (computerPlay == 'rock')
+                {
+                 console.log("You Lose! Rock beats Scissors ");
+                 computerCounter++;
+                }
+             else if (computerPlay == 'paper') 
+                {
+                 console.log("You win! Scissors Beats Paper");
+                 playerCounter++;
+                }
+             else console.log("Its a tie!");
+             break;}  
+              }
+              
+        return [Number(playerCounter),Number(computerCounter)]; //apotelesmata metrhtwn se pinaka  [xrhsths,computer]
+      }
+
+      console.log(game());
+
+      function game()
+      {     
+        let sumPlayer=0;
+        let sumComputer=0;
+    
+
+            for(let i = 0; i < 5; i++)     //5 epanalhpseis
+            {   
+                console.log("ROUND :"+(i+1)); 
+                let score=playRound();   //kalw thn synarthsh na paiksei to gyro
+                sumPlayer+=score[0];     //athroizw tis nikes gia ton paikth
+                sumComputer+=score[1];   //athroizw tis nikes gia to computer  
+            }
+
+            console.log("Computer Score : "+sumComputer+ "  Player Score : " +sumPlayer);
+
+                if (sumPlayer > sumComputer)
+                    console.log("YOU WON")
+                else if (sumPlayer<sumComputer)
+                    console.log("YOU LOSE");
+                else 
+                    console.log("ITS A TIE");
+                
+            
+      }
+    </script>
+</body>
+</html>
