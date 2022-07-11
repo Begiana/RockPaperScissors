@@ -1,12 +1,12 @@
-const rock = document.querySelector("#rock");
+const rock = document.querySelector("#rock"); //metavlites gia tis eikones
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
+//metavlhth gia thn epilogh tou upologisth
 const choice = [rock, paper, scissors];
 
 const message = document.querySelector("#message");
 const playScore = document.querySelector("#playerScore");
 const computerScore = document.querySelector("#computerScore");
-const imgChoice = document.createElement("img");
 
 let playerChoice;
 let playerScore = 0;
@@ -26,8 +26,8 @@ function playerSelection(x) {
 }
 
 function play(_playerChoice, _computerPlay = computerSelection()) {
-  yourChoice.innerHTML = `You chose \n ${_playerChoice.id} `;
-  themChoice.innerHTML = `Computer chose \n${_computerPlay.id}`;
+  yourChoice.innerHTML = `Your choice :  \n  ${_playerChoice.id}`;
+  themChoice.innerHTML = `PC choice : \n${_computerPlay.id}`;
 
   if (_computerPlay.id == _playerChoice.id) message.innerHTML = "Its a tie!";
   switch (_playerChoice.id) {
@@ -65,18 +65,12 @@ function play(_playerChoice, _computerPlay = computerSelection()) {
   playScore.innerHTML = `Your score : ${playerScore}`;
   computerScore.innerHTML = `Computer score : ${pcScore}`;
 
-  const modal = document.querySelector("#modal");
-  const finalMessage = document.querySelector("#finalMessage");
-  const replayButton = document.querySelector("#rePlay");
-
   if (playerScore == 5) {
-    modal.showModal();
-    finalMessage.innerHTML = "You Won!";
+    message.innerHTML = "You Won!";
     playerScore = 0;
     pcScore = 0;
   } else if (pcScore == 5) {
-    modal.showModal();
-    finalMessage.innerHTML = "You lose";
+    message.innerHTML = "You lose";
     playerScore = 0;
     pcScore = 0;
   }
